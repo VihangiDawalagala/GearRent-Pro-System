@@ -10,54 +10,113 @@
 
     <Label text="Process Returns" styleClass="page-title"/>
 
-    <SplitPane dividerPositions="0.55" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.52" VBox.vgrow="ALWAYS">
+
+        <!-- Left: Active Rentals Table -->
         <VBox spacing="6">
-            <Label text="Active / Overdue Rentals" styleClass="section-title"/>
+            <Label text="Select an Active or Overdue Rental"
+                   styleClass="section-title"/>
             <TableView fx:id="tblActive" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colId"      text="#"         prefWidth="55"/>
-                    <TableColumn fx:id="colEquip"   text="Equipment" prefWidth="190"/>
+                    <TableColumn fx:id="colId"      text="#"         prefWidth="50"/>
+                    <TableColumn fx:id="colEquip"   text="Equipment" prefWidth="180"/>
                     <TableColumn fx:id="colCust"    text="Customer"  prefWidth="130"/>
                     <TableColumn fx:id="colBranch"  text="Branch"    prefWidth="110"/>
-                    <TableColumn fx:id="colStart"   text="Start"     prefWidth="95"/>
-                    <TableColumn fx:id="colEnd"     text="Due"       prefWidth="95"/>
-                    <TableColumn fx:id="colDays"    text="Overdue?"  prefWidth="110"/>
+                    <TableColumn fx:id="colStart"   text="Start"     prefWidth="90"/>
+                    <TableColumn fx:id="colEnd"     text="Due Date"  prefWidth="90"/>
+                    <TableColumn fx:id="colDays"    text="Overdue?"  prefWidth="100"/>
                     <TableColumn fx:id="colDeposit" text="Deposit"   prefWidth="100"/>
                 </columns>
             </TableView>
         </VBox>
 
+        <!-- Right: Return Form -->
         <ScrollPane fitToWidth="true">
-        <VBox styleClass="card" spacing="10">
-            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-            <Label text="Return Details" styleClass="section-title"/>
-            <Label fx:id="lblRentalInfo" text="Select a rental from the table." wrapText="true" styleClass="info-label"/>
+            <VBox styleClass="card" spacing="12">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
 
-            <Label text="Actual Return Date *"/>
-            <DatePicker fx:id="dpActualReturn" maxWidth="Infinity"/>
+                <Label text="Return Details" styleClass="section-title"/>
 
-            <CheckBox fx:id="chkDamaged" text="Equipment Damaged"/>
+                <Label fx:id="lblRentalInfo"
+                       text="Select a rental from the table on the left."
+                       wrapText="true"
+                       style="-fx-text-fill: #2563EB; -fx-font-size: 12px; -fx-font-weight: bold;"/>
 
-            <Label text="Damage Description"/>
-            <TextField fx:id="txtDamageDesc" styleClass="form-field"/>
+                <Label text="Actual Return Date *"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <DatePicker fx:id="dpActualReturn" maxWidth="Infinity"
+                            style="-fx-background-color: white;"/>
 
-            <Label text="Damage Charge (LKR)"/>
-            <TextField fx:id="txtDamageCharge" styleClass="form-field" promptText="0.00"/>
+                <CheckBox fx:id="chkDamaged" text="Equipment is Damaged"/>
 
-            <VBox styleClass="cost-preview" spacing="4">
-                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
-                <Label text="Settlement Preview" styleClass="section-title"/>
-                <HBox><Label text="Late Fee:           " minWidth="170"/><Label fx:id="lblLateFee"    text="--"/></HBox>
-                <HBox><Label text="Total Charges:      " minWidth="170"/><Label fx:id="lblDamageTotal" text="--"/></HBox>
-                <HBox><Label text="Deposit Used:       " minWidth="170"/><Label fx:id="lblDepositUsed" text="--"/></HBox>
-                <Separator/>
-                <HBox><Label text="Refund to Customer: " minWidth="170"/><Label fx:id="lblRefund"     text="--" styleClass="total-value"/></HBox>
-                <HBox><Label text="Extra to Collect:   " minWidth="170"/><Label fx:id="lblExtra"      text="--" styleClass="stat-danger"/></HBox>
+                <Label text="Damage Description"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <TextField fx:id="txtDamageDesc"
+                           promptText="Describe the damage here..."
+                           style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-prompt-text-fill: #94A3B8; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
+
+                <Label text="Damage Charge (LKR)"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <TextField fx:id="txtDamageCharge"
+                           promptText="0.00"
+                           style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-prompt-text-fill: #94A3B8; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
+
+                <!-- Settlement Preview Box -->
+                <VBox spacing="10"
+                      style="-fx-background-color: #FFF7ED; -fx-border-color: #FED7AA; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 14;">
+
+                    <Label text="Settlement Preview"
+                           style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #92400E;"/>
+
+                    <HBox spacing="0">
+                        <Label text="Late Fee:"
+                               minWidth="180"
+                               style="-fx-text-fill: #DC2626; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                        <Label fx:id="lblLateFee" text="--"
+                               style="-fx-font-weight: bold; -fx-text-fill: #DC2626; -fx-font-size: 13px;"/>
+                    </HBox>
+
+                    <HBox spacing="0">
+                        <Label text="Total Charges:"
+                               minWidth="180"
+                               style="-fx-text-fill: #DC2626; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                        <Label fx:id="lblDamageTotal" text="--"
+                               style="-fx-font-weight: bold; -fx-text-fill: #DC2626; -fx-font-size: 13px;"/>
+                    </HBox>
+
+                    <HBox spacing="0">
+                        <Label text="Deposit Used:"
+                               minWidth="180"
+                               style="-fx-text-fill: #334155; -fx-font-size: 12px;"/>
+                        <Label fx:id="lblDepositUsed" text="--"
+                               style="-fx-font-weight: bold; -fx-text-fill: #334155; -fx-font-size: 13px;"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <HBox spacing="0">
+                        <Label text="Refund to Customer:"
+                               minWidth="180"
+                               style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #16A34A;"/>
+                        <Label fx:id="lblRefund" text="--"
+                               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #16A34A;"/>
+                    </HBox>
+
+                    <HBox spacing="0">
+                        <Label text="Extra to Collect:"
+                               minWidth="180"
+                               style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #DC2626;"/>
+                        <Label fx:id="lblExtra" text="--"
+                               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #DC2626;"/>
+                    </HBox>
+                </VBox>
+
+                <Button text="Process Return"
+                        onAction="#handleProcessReturn"
+                        maxWidth="Infinity"
+                        styleClass="btn-primary"/>
+
             </VBox>
-
-            <Button text="Process Return" onAction="#handleProcessReturn"
-                    maxWidth="Infinity" styleClass="btn-primary"/>
-        </VBox>
         </ScrollPane>
     </SplitPane>
 </VBox>
