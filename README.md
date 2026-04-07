@@ -37,14 +37,16 @@ First run takes 3-5 minutes to download dependencies.
 
 ## Default Login Credentials
 
-- admin / admin123 - Admin - All branches
-- mgr_col / manager123 - Branch Manager - Colombo
-- mgr_pan / manager123 - Branch Manager - Panadura
-- mgr_gal / manager123 - Branch Manager - Galle
-- staff_col / staff123 - Staff - Colombo
-- staff_pan / staff123 - Staff - Panadura
-- staff_gal / staff123 - Staff - Galle
 
+| Username  | Password   | Role           | Branch       |
+|---------- |----------  |------          |--------      |
+| admin     | admin123   | Admin          | All branches |
+| mgr_col   | manager123 | Branch Manager | Colombo      |
+| mgr_pan   | manager123 | Branch Manager | Panadura     |
+| mgr_gal   | manager123 | Branch Manager | Galle        |
+| staff_col | staff123   | Staff          | Colombo      |
+| staff_pan | staff123   | Staff          | Panadura     |
+| staff_gal | staff123   | Staff          | Galle        |
 ## Sample Data
 
 - 3 branches: Colombo, Panadura, Galle
