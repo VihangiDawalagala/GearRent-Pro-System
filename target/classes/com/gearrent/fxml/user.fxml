@@ -12,47 +12,37 @@
     <Label fx:id="lblStatus" styleClass="error-label"/>
 
     <SplitPane dividerPositions="0.58" VBox.vgrow="ALWAYS">
-
-        <!-- Users table -->
         <VBox spacing="6">
             <TableView fx:id="tblUsers" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colId"       text="#"        prefWidth="45"/>
-                    <TableColumn fx:id="colUsername"  text="Username" prefWidth="120"/>
-                    <TableColumn fx:id="colFullName"  text="Full Name"prefWidth="160"/>
-                    <TableColumn fx:id="colRole"      text="Role"     prefWidth="120"/>
-                    <TableColumn fx:id="colBranch"    text="Branch"   prefWidth="130"/>
-                    <TableColumn fx:id="colActive"    text="Active"   prefWidth="60"/>
+                    <TableColumn fx:id="colId"       text="#"         prefWidth="45"/>
+                    <TableColumn fx:id="colUsername"  text="Username"  prefWidth="120"/>
+                    <TableColumn fx:id="colFullName"  text="Full Name" prefWidth="160"/>
+                    <TableColumn fx:id="colRole"      text="Role"      prefWidth="120"/>
+                    <TableColumn fx:id="colBranch"    text="Branch"    prefWidth="130"/>
+                    <TableColumn fx:id="colActive"    text="Active"    prefWidth="60"/>
                 </columns>
             </TableView>
         </VBox>
 
-        <!-- Form -->
         <VBox styleClass="card" spacing="10">
             <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
             <Label text="User Details" styleClass="section-title"/>
-
             <Label text="Username *"/>
             <TextField fx:id="txtUsername" styleClass="form-field" promptText="login name"/>
-
             <Label text="Full Name *"/>
             <TextField fx:id="txtFullName" styleClass="form-field" promptText="Display name"/>
-
             <Label text="Password (leave blank to keep existing)"/>
             <PasswordField fx:id="txtPassword" styleClass="form-field" promptText="min 6 chars"/>
-
             <Label text="Role *"/>
             <ComboBox fx:id="cmbRole" maxWidth="Infinity" styleClass="form-field"/>
-
             <Label text="Branch (required for Manager/Staff)"/>
             <ComboBox fx:id="cmbBranch" maxWidth="Infinity" styleClass="form-field"/>
-
             <CheckBox fx:id="chkActive" text="Active" selected="true"/>
-
             <HBox spacing="8">
-                <Button text="💾 Save"   onAction="#handleSave"   styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="🗑 Delete" onAction="#handleDelete" styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="✖ Clear"  onAction="#handleClear"  styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Save"   onAction="#handleSave"   styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Delete" onAction="#handleDelete" styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Clear"  onAction="#handleClear"  styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
             </HBox>
         </VBox>
     </SplitPane>

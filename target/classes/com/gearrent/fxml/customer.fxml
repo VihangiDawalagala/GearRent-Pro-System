@@ -12,20 +12,20 @@
 
     <HBox styleClass="filter-bar" spacing="10" alignment="CENTER_LEFT">
         <padding><Insets top="8" right="12" bottom="8" left="12"/></padding>
-        <TextField fx:id="txtSearch" promptText="Search by name, NIC, email…" prefWidth="280"/>
-        <Button text="🔍 Search" onAction="#handleSearch" styleClass="btn-secondary"/>
+        <TextField fx:id="txtSearch" promptText="Search by name, NIC, email" prefWidth="280"/>
+        <Button text="Search" onAction="#handleSearch" styleClass="btn-secondary"/>
     </HBox>
 
     <SplitPane dividerPositions="0.56" VBox.vgrow="ALWAYS">
         <VBox>
             <TableView fx:id="tblCust" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colId"      text="#"         prefWidth="50"/>
-                    <TableColumn fx:id="colName"    text="Name"      prefWidth="160"/>
-                    <TableColumn fx:id="colNic"     text="NIC/Pass"  prefWidth="130"/>
-                    <TableColumn fx:id="colContact" text="Contact"   prefWidth="110"/>
-                    <TableColumn fx:id="colEmail"   text="Email"     prefWidth="160"/>
-                    <TableColumn fx:id="colLevel"   text="Membership"prefWidth="90"/>
+                    <TableColumn fx:id="colId"      text="#"          prefWidth="50"/>
+                    <TableColumn fx:id="colName"    text="Name"       prefWidth="160"/>
+                    <TableColumn fx:id="colNic"     text="NIC/Pass"   prefWidth="130"/>
+                    <TableColumn fx:id="colContact" text="Contact"    prefWidth="110"/>
+                    <TableColumn fx:id="colEmail"   text="Email"      prefWidth="160"/>
+                    <TableColumn fx:id="colLevel"   text="Membership" prefWidth="90"/>
                 </columns>
             </TableView>
         </VBox>
@@ -47,10 +47,10 @@
             <ComboBox fx:id="cmbLevel" maxWidth="Infinity" styleClass="form-field"/>
             <Label fx:id="lblDeposit" styleClass="info-label"/>
             <HBox spacing="8">
-                <Button text="💾 Save"         onAction="#handleSave"        styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="🗑 Delete"       onAction="#handleDelete"      styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="📋 History"      onAction="#handleViewHistory" styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="✖ Clear"        onAction="#handleClear"       styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Save"    onAction="#handleSave"        styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Delete"  onAction="#handleDelete"      styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="History" onAction="#handleViewHistory" styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Clear"   onAction="#handleClear"       styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
             </HBox>
         </VBox>
     </SplitPane>

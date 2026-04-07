@@ -25,8 +25,8 @@
                 </columns>
             </TableView>
             <HBox spacing="8">
-                <Button text="❌ Cancel Reservation" onAction="#handleCancel" styleClass="btn-danger"/>
-                <Button text="✅ Convert to Rental"  onAction="#handleConvert" styleClass="btn-primary"/>
+                <Button text="Cancel Reservation" onAction="#handleCancel" styleClass="btn-danger"/>
+                <Button text="Convert to Rental"  onAction="#handleConvert" styleClass="btn-primary"/>      
             </HBox>
         </VBox>
 
