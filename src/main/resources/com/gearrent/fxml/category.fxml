@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
@@ -11,45 +12,57 @@
     <Label text="Equipment Categories" styleClass="page-title"/>
     <Label fx:id="lblStatus" styleClass="error-label"/>
 
-    <SplitPane dividerPositions="0.58" VBox.vgrow="ALWAYS">
-        <VBox spacing="6">
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <VBox HBox.hgrow="ALWAYS" spacing="6">
             <TableView fx:id="tblCats" VBox.vgrow="ALWAYS">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
                 <columns>
-                    <TableColumn fx:id="colName"    text="Category"        prefWidth="140"/>
-                    <TableColumn fx:id="colFactor"  text="Price Factor"    prefWidth="100"/>
-                    <TableColumn fx:id="colWE"      text="Weekend ×"       prefWidth="100"/>
-                    <TableColumn fx:id="colLateFee" text="Late Fee/Day"    prefWidth="110"/>
-                    <TableColumn fx:id="colActive"  text="Active"          prefWidth="60"/>
+                    <TableColumn fx:id="colName"    text="Category"     prefWidth="140"/>
+                    <TableColumn fx:id="colFactor"  text="Price Factor" prefWidth="110"/>
+                    <TableColumn fx:id="colWE"      text="Weekend x"    prefWidth="100"/>
+                    <TableColumn fx:id="colLateFee" text="Late Fee/Day" prefWidth="120"/>
+                    <TableColumn fx:id="colActive"  text="Active"       prefWidth="70"/>
                 </columns>
             </TableView>
         </VBox>
 
-        <VBox styleClass="card" spacing="10">
+        <VBox styleClass="card" spacing="10" minWidth="320" maxWidth="360">
             <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
             <Label text="Category Details" styleClass="section-title"/>
 
-            <Label text="Name *"/>
-            <TextField fx:id="txtName" promptText="e.g. Camera" styleClass="form-field"/>
+            <Label text="Name *" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtName" promptText="e.g. Camera"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
 
-            <Label text="Description"/>
-            <TextField fx:id="txtDesc" promptText="Short description" styleClass="form-field"/>
+            <Label text="Description" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtDesc" promptText="Short description"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
 
-            <Label text="Base Price Factor *"/>
-            <TextField fx:id="txtFactor" promptText="e.g. 1.50" styleClass="form-field"/>
+            <Label text="Base Price Factor *" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtFactor" promptText="e.g. 1.50"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
 
-            <Label text="Weekend Multiplier *"/>
-            <TextField fx:id="txtWE" promptText="e.g. 1.20" styleClass="form-field"/>
+            <Label text="Weekend Multiplier *" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtWE" promptText="e.g. 1.20"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
 
-            <Label text="Default Late Fee per Day (LKR) *"/>
-            <TextField fx:id="txtLateFee" promptText="e.g. 500" styleClass="form-field"/>
+            <Label text="Default Late Fee per Day (LKR) *" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtLateFee" promptText="e.g. 500"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
 
             <CheckBox fx:id="chkActive" text="Active" selected="true"/>
 
             <HBox spacing="8">
-                <Button text="💾 Save"   onAction="#handleSave"   styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="🗑 Delete" onAction="#handleDelete" styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="✖ Clear"  onAction="#handleClear"  styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Save"   onAction="#handleSave"   styleClass="btn-primary"
+                        HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Delete" onAction="#handleDelete" styleClass="btn-danger"
+                        HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Clear"  onAction="#handleClear"  styleClass="btn-secondary"
+                        HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
             </HBox>
         </VBox>
-    </SplitPane>
+    </HBox>
 </VBox>
