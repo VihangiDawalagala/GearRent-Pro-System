@@ -10,40 +10,52 @@
 
     <Label text="Membership and Pricing Configuration" styleClass="page-title"/>
 
-    <Label text="Membership Levels" styleClass="section-title"/>
-    <TableView fx:id="tblMem" prefHeight="180">
-        <columns>
-            <TableColumn fx:id="colLevel"    text="Level"         prefWidth="120"/>
-            <TableColumn fx:id="colDiscount" text="Discount %"    prefWidth="120"/>
-            <TableColumn fx:id="colLimit"    text="Deposit Limit" prefWidth="160"/>
-        </columns>
-    </TableView>
+    <!-- Membership Table -->
+    <VBox styleClass="card" spacing="8">
+        <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+        <Label text="Membership Levels" styleClass="section-title"/>
+        <TableView fx:id="tblMem" prefHeight="150" maxHeight="150">
+            <columns>
+                <TableColumn fx:id="colLevel"    text="Level"         prefWidth="100"/>
+                <TableColumn fx:id="colDiscount" text="Discount %"    prefWidth="110"/>
+                <TableColumn fx:id="colLimit"    text="Deposit Limit" prefWidth="160"/>
+                <TableColumn fx:id="colBenefit"  text="Benefit"       prefWidth="220"/>
+                <TableColumn fx:id="colStatus"   text="Status"        prefWidth="80"/>
+            </columns>
+        </TableView>
+    </VBox>
 
-    <HBox spacing="16">
+    <!-- Two panels side by side -->
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Left: Edit Membership -->
         <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
             <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
             <Label text="Edit Membership Level" styleClass="section-title"/>
-            <Label fx:id="lblLevel" text="-- select a row above --" styleClass="info-label"/>
-            <Label text="Discount Percentage (0-100)"/>
+            <Label fx:id="lblLevel" text="-- click a row in the table above --"
+                   styleClass="info-label" wrapText="true"/>
+            <Label text="Discount Percentage (0-100)" style="-fx-font-weight: bold;"/>
             <TextField fx:id="txtDiscount" styleClass="form-field" promptText="e.g. 5.0"/>
-            <Label text="Deposit Limit (LKR)"/>
+            <Label text="Deposit Limit (LKR)" style="-fx-font-weight: bold;"/>
             <TextField fx:id="txtLimit" styleClass="form-field" promptText="e.g. 750000"/>
-            <Button text="Save Membership" onAction="#handleSave"
+            <Button text="Save Membership Changes" onAction="#handleSave"
                     styleClass="btn-primary" maxWidth="Infinity"/>
         </VBox>
 
+        <!-- Right: Pricing Rules -->
         <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
             <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
             <Label text="Pricing Rules" styleClass="section-title"/>
-            <Label text="Long Rental Minimum Days"/>
+            <Label text="Long Rental Minimum Days" style="-fx-font-weight: bold;"/>
             <TextField fx:id="txtMinDays" styleClass="form-field" promptText="e.g. 7"/>
-            <Label text="Long Rental Discount %"/>
+            <Label text="Long Rental Discount %" style="-fx-font-weight: bold;"/>
             <TextField fx:id="txtLongDiscount" styleClass="form-field" promptText="e.g. 10.0"/>
-            <Label text="Global Late Fee per Day (LKR)"/>
+            <Label text="Global Late Fee per Day (LKR)" style="-fx-font-weight: bold;"/>
             <TextField fx:id="txtLateFee" styleClass="form-field" promptText="e.g. 500.0"/>
             <Button text="Save Pricing Rules" onAction="#handleSavePricing"
                     styleClass="btn-primary" maxWidth="Infinity"/>
-            <Label fx:id="lblPricingStatus" styleClass="info-label" wrapText="true"/>
+            <Label fx:id="lblPricingStatus" styleClass="info-label" wrapText="true"
+                   style="-fx-text-fill: #16A34A; -fx-font-size: 12px;"/>
         </VBox>
     </HBox>
 </VBox>
