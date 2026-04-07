@@ -2,23 +2,17 @@
    GearRent Pro – JavaFX Stylesheet
    ============================================================ */
 
-/* ── Palette ─────────────────────────────────────────────── */
-/* Primary  : #2563EB (blue)   Danger: #DC2626 (red)
-   Surface  : #F8FAFC          Card  : #FFFFFF
-   Sidebar  : #1E293B          Text  : #0F172A  */
-
-/* ── Root / Scene ────────────────────────────────────────── */
+/* ── Root / Scene ────────────────────────────────────────────── */
 .root {
     -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     -fx-font-size: 13px;
     -fx-background-color: #F1F5F9;
 }
-
 .root-pane {
     -fx-background-color: #F1F5F9;
 }
 
-/* ── Top Bar ─────────────────────────────────────────────── */
+/* ── Top Bar ─────────────────────────────────────────────────── */
 .top-bar {
     -fx-background-color: #1E293B;
     -fx-padding: 0 20 0 20;
@@ -42,7 +36,7 @@
 }
 .btn-logout:hover { -fx-background-color: #DC2626; }
 
-/* ── Sidebar ─────────────────────────────────────────────── */
+/* ── Sidebar ─────────────────────────────────────────────────── */
 .sidebar {
     -fx-background-color: #1E293B;
     -fx-padding: 16 8 16 8;
@@ -72,7 +66,7 @@
     -fx-text-fill: #FFFFFF;
 }
 
-/* ── Content Area ────────────────────────────────────────── */
+/* ── Content Area ────────────────────────────────────────────── */
 .content-area {
     -fx-background-color: #F1F5F9;
     -fx-padding: 0;
@@ -81,7 +75,7 @@
     -fx-background-color: #F1F5F9;
 }
 
-/* ── Cards ───────────────────────────────────────────────── */
+/* ── Cards ───────────────────────────────────────────────────── */
 .card {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 10px;
@@ -91,7 +85,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 2);
 }
 
-/* ── Stat Cards (dashboard) ──────────────────────────────── */
+/* ── Stat Cards ──────────────────────────────────────────────── */
 .stat-card {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 10px;
@@ -113,7 +107,7 @@
 }
 .stat-danger { -fx-text-fill: #DC2626; }
 
-/* ── Typography ──────────────────────────────────────────── */
+/* ── Typography ──────────────────────────────────────────────── */
 .page-title {
     -fx-font-size: 22px;
     -fx-font-weight: bold;
@@ -144,7 +138,12 @@
 }
 .discount-label { -fx-text-fill: #16A34A; }
 
-/* ── Buttons ─────────────────────────────────────────────── */
+/* ── ALL Labels default text color ───────────────────────────── */
+.label {
+    -fx-text-fill: #0F172A;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
 .btn-primary {
     -fx-background-color: #2563EB;
     -fx-text-fill: #FFFFFF;
@@ -175,9 +174,11 @@
 }
 .btn-secondary:hover { -fx-background-color: #CBD5E1; }
 
-/* ── Form Fields ─────────────────────────────────────────── */
+/* ── Form Fields ─────────────────────────────────────────────── */
 .form-field {
-    -fx-background-color: #F8FAFC;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0F172A;
+    -fx-prompt-text-fill: #94A3B8;
     -fx-border-color: #CBD5E1;
     -fx-border-radius: 6px;
     -fx-background-radius: 6px;
@@ -187,20 +188,43 @@
 .form-field:focused {
     -fx-border-color: #2563EB;
     -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0F172A;
 }
-.text-field, .password-field {
-    -fx-background-color: #F8FAFC;
+
+/* ── TextField & PasswordField ───────────────────────────────── */
+.text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0F172A;
+    -fx-prompt-text-fill: #94A3B8;
     -fx-border-color: #CBD5E1;
     -fx-border-radius: 6px;
     -fx-background-radius: 6px;
     -fx-padding: 7 10 7 10;
 }
-.text-field:focused, .password-field:focused {
+.text-field:focused {
     -fx-border-color: #2563EB;
     -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0F172A;
 }
+
+.password-field {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0F172A;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 7 10 7 10;
+}
+.password-field:focused {
+    -fx-border-color: #2563EB;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0F172A;
+}
+
+/* ── ComboBox ────────────────────────────────────────────────── */
 .combo-box {
-    -fx-background-color: #F8FAFC;
+    -fx-background-color: #FFFFFF;
     -fx-border-color: #CBD5E1;
     -fx-border-radius: 6px;
     -fx-background-radius: 6px;
@@ -208,12 +232,27 @@
 .combo-box:focused { -fx-border-color: #2563EB; }
 .combo-box .list-cell {
     -fx-padding: 4 8 4 8;
+    -fx-text-fill: #0F172A;
+    -fx-background-color: #FFFFFF;
 }
-.date-picker .text-field {
-    -fx-background-color: #F8FAFC;
+.combo-box-popup .list-view .list-cell {
+    -fx-text-fill: #0F172A;
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 6 10 6 10;
+}
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #EFF6FF;
+    -fx-text-fill: #1E3A8A;
 }
 
-/* ── Filter Bar ──────────────────────────────────────────── */
+/* ── DatePicker ──────────────────────────────────────────────── */
+.date-picker .text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0F172A;
+    -fx-prompt-text-fill: #94A3B8;
+}
+
+/* ── Filter Bar ──────────────────────────────────────────────── */
 .filter-bar {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 8px;
@@ -223,7 +262,7 @@
     -fx-padding: 8 12 8 12;
 }
 
-/* ── Cost Preview Box ────────────────────────────────────── */
+/* ── Cost Preview Box ────────────────────────────────────────── */
 .cost-preview {
     -fx-background-color: #EFF6FF;
     -fx-background-radius: 8px;
@@ -242,7 +281,7 @@
     -fx-text-fill: #2563EB;
 }
 
-/* ── Tables ──────────────────────────────────────────────── */
+/* ── Tables ──────────────────────────────────────────────────── */
 .table-view {
     -fx-background-color: #FFFFFF;
     -fx-border-color: #E2E8F0;
@@ -263,50 +302,40 @@
     -fx-cell-size: 36px;
     -fx-border-color: transparent transparent #F1F5F9 transparent;
 }
+.table-row-cell .table-cell {
+    -fx-text-fill: #0F172A;
+}
 .table-row-cell:odd  { -fx-background-color: #FAFAFA; }
 .table-row-cell:even { -fx-background-color: #FFFFFF; }
 .table-row-cell:selected {
     -fx-background-color: #DBEAFE;
+}
+.table-row-cell:selected .table-cell {
     -fx-text-fill: #1E3A8A;
 }
 .table-row-cell:hover { -fx-background-color: #EFF6FF; }
 
-/* ── Coloured Table Rows ─────────────────────────────────── */
-.row-overdue {
-    -fx-background-color: #FEF2F2 !important;
-    -fx-text-fill: #991B1B;
-}
+/* ── Coloured Table Rows ─────────────────────────────────────── */
+.row-overdue { -fx-background-color: #FEF2F2 !important; }
 .row-overdue .table-cell { -fx-text-fill: #991B1B; }
-.row-overdue:selected    { -fx-background-color: #FECACA !important; }
+.row-overdue:selected { -fx-background-color: #FECACA !important; }
 
-.row-rented {
-    -fx-background-color: #FFF7ED !important;
-}
+.row-rented { -fx-background-color: #FFF7ED !important; }
 .row-rented .table-cell { -fx-text-fill: #92400E; }
 
-.row-maintenance {
-    -fx-background-color: #F5F3FF !important;
-}
+.row-maintenance { -fx-background-color: #F5F3FF !important; }
 .row-maintenance .table-cell { -fx-text-fill: #5B21B6; }
 
-.row-reserved {
-    -fx-background-color: #ECFDF5 !important;
-}
+.row-reserved { -fx-background-color: #ECFDF5 !important; }
 .row-reserved .table-cell { -fx-text-fill: #065F46; }
 
-.row-returned {
-    -fx-background-color: #F0FDF4 !important;
-}
+.row-returned { -fx-background-color: #F0FDF4 !important; }
 .row-returned .table-cell { -fx-text-fill: #166534; }
 
-.row-high-util {
-    -fx-background-color: #DCFCE7 !important;
-}
-.row-low-util {
-    -fx-background-color: #FEF2F2 !important;
-}
+.row-high-util { -fx-background-color: #DCFCE7 !important; }
+.row-low-util  { -fx-background-color: #FEF2F2 !important; }
 
-/* ── SplitPane ───────────────────────────────────────────── */
+/* ── SplitPane ───────────────────────────────────────────────── */
 .split-pane {
     -fx-background-color: transparent;
     -fx-padding: 0;
@@ -316,7 +345,7 @@
     -fx-padding: 0 1 0 1;
 }
 
-/* ── TabPane ─────────────────────────────────────────────── */
+/* ── TabPane ─────────────────────────────────────────────────── */
 .tab-pane .tab-header-area .tab-header-background {
     -fx-background-color: #FFFFFF;
     -fx-border-color: transparent transparent #E2E8F0 transparent;
@@ -325,18 +354,14 @@
     -fx-background-color: #F1F5F9;
     -fx-padding: 8 16 8 16;
 }
-.tab-pane .tab:selected {
-    -fx-background-color: #FFFFFF;
-}
+.tab-pane .tab:selected { -fx-background-color: #FFFFFF; }
 .tab-pane .tab .tab-label {
     -fx-font-weight: bold;
     -fx-text-fill: #475569;
 }
-.tab-pane .tab:selected .tab-label {
-    -fx-text-fill: #2563EB;
-}
+.tab-pane .tab:selected .tab-label { -fx-text-fill: #2563EB; }
 
-/* ── ScrollPane ──────────────────────────────────────────── */
+/* ── ScrollPane ──────────────────────────────────────────────── */
 .scroll-pane {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -345,9 +370,9 @@
     -fx-background-color: transparent;
 }
 
-/* ── CheckBox ────────────────────────────────────────────── */
+/* ── CheckBox ────────────────────────────────────────────────── */
 .check-box .box {
-    -fx-background-color: #F8FAFC;
+    -fx-background-color: #FFFFFF;
     -fx-border-color: #CBD5E1;
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
@@ -357,21 +382,21 @@
     -fx-border-color: #2563EB;
 }
 .check-box:selected .mark { -fx-background-color: #FFFFFF; }
+.check-box .text { -fx-text-fill: #0F172A; }
 
-/* ── Separator ───────────────────────────────────────────── */
+/* ── Separator ───────────────────────────────────────────────── */
 .separator .line {
     -fx-border-color: #E2E8F0;
     -fx-border-width: 1px;
 }
 
-/* ── Legend labels (reports) ─────────────────────────────── */
+/* ── Legend labels ───────────────────────────────────────────── */
 .legend-high { -fx-text-fill: #166534; -fx-font-size: 12px; }
 .legend-low  { -fx-text-fill: #991B1B; -fx-font-size: 12px; }
 
-/* ── Alerts / Dialogs ────────────────────────────────────── */
-.dialog-pane {
-    -fx-background-color: #FFFFFF;
-}
+/* ── Alerts / Dialogs ────────────────────────────────────────── */
+.dialog-pane { -fx-background-color: #FFFFFF; }
+.dialog-pane .content.label { -fx-text-fill: #0F172A; }
 .dialog-pane .button-bar .button {
     -fx-background-radius: 6px;
     -fx-cursor: hand;
