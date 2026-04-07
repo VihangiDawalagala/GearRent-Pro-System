@@ -19,12 +19,12 @@
     -fx-min-height: 52px;
 }
 .app-title {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #FFFFFF !important;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
 .user-info-label {
-    -fx-text-fill: #94A3B8;
+    -fx-text-fill: #94A3B8 !important;
     -fx-font-size: 12px;
 }
 .btn-logout {
@@ -43,14 +43,14 @@
     -fx-min-width: 210px;
 }
 .nav-section-label {
-    -fx-text-fill: #64748B;
+    -fx-text-fill: #64748B !important;
     -fx-font-size: 10px;
     -fx-font-weight: bold;
     -fx-padding: 8 8 4 8;
 }
 .nav-btn {
     -fx-background-color: transparent;
-    -fx-text-fill: #CBD5E1;
+    -fx-text-fill: #CBD5E1 !important;
     -fx-alignment: CENTER_LEFT;
     -fx-padding: 9 12 9 12;
     -fx-cursor: hand;
@@ -59,11 +59,19 @@
 }
 .nav-btn:hover {
     -fx-background-color: #334155;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #FFFFFF !important;
 }
 .nav-btn:focused {
     -fx-background-color: #2563EB;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+/* ── Override label color for dark backgrounds ───────────────── */
+.top-bar .label {
     -fx-text-fill: #FFFFFF;
+}
+.sidebar .label {
+    -fx-text-fill: #CBD5E1;
 }
 
 /* ── Content Area ────────────────────────────────────────────── */
@@ -138,7 +146,7 @@
 }
 .discount-label { -fx-text-fill: #16A34A; }
 
-/* ── ALL Labels default text color ───────────────────────────── */
+/* ── Default label color (content area only) ─────────────────── */
 .label {
     -fx-text-fill: #0F172A;
 }
@@ -206,7 +214,6 @@
     -fx-background-color: #FFFFFF;
     -fx-text-fill: #0F172A;
 }
-
 .password-field {
     -fx-background-color: #FFFFFF;
     -fx-text-fill: #0F172A;
@@ -295,7 +302,7 @@
 }
 .table-view .column-header .label {
     -fx-font-weight: bold;
-    -fx-text-fill: #475569;
+    -fx-text-fill: #475569 !important;
     -fx-font-size: 12px;
 }
 .table-row-cell {
@@ -307,12 +314,8 @@
 }
 .table-row-cell:odd  { -fx-background-color: #FAFAFA; }
 .table-row-cell:even { -fx-background-color: #FFFFFF; }
-.table-row-cell:selected {
-    -fx-background-color: #DBEAFE;
-}
-.table-row-cell:selected .table-cell {
-    -fx-text-fill: #1E3A8A;
-}
+.table-row-cell:selected { -fx-background-color: #DBEAFE; }
+.table-row-cell:selected .table-cell { -fx-text-fill: #1E3A8A; }
 .table-row-cell:hover { -fx-background-color: #EFF6FF; }
 
 /* ── Coloured Table Rows ─────────────────────────────────────── */
