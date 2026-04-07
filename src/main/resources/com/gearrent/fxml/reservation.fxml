@@ -10,48 +10,59 @@
 
     <Label text="Reservations" styleClass="page-title"/>
 
-    <SplitPane dividerPositions="0.60" VBox.vgrow="ALWAYS">
-        <!-- List -->
-        <VBox spacing="8">
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Left: Reservations Table -->
+        <VBox HBox.hgrow="ALWAYS" spacing="6">
             <TableView fx:id="tblRes" VBox.vgrow="ALWAYS">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
                 <columns>
-                    <TableColumn fx:id="colId"     text="#"          prefWidth="55"/>
-                    <TableColumn fx:id="colEquip"  text="Equipment"  prefWidth="200"/>
-                    <TableColumn fx:id="colCust"   text="Customer"   prefWidth="150"/>
-                    <TableColumn fx:id="colBranch" text="Branch"     prefWidth="110"/>
-                    <TableColumn fx:id="colStart"  text="Start"      prefWidth="100"/>
-                    <TableColumn fx:id="colEnd"    text="End"        prefWidth="100"/>
-                    <TableColumn fx:id="colStatus" text="Status"     prefWidth="90"/>
+                    <TableColumn fx:id="colId"     text="#"         prefWidth="45"/>
+                    <TableColumn fx:id="colEquip"  text="Equipment" prefWidth="180"/>
+                    <TableColumn fx:id="colCust"   text="Customer"  prefWidth="140"/>
+                    <TableColumn fx:id="colBranch" text="Branch"    prefWidth="120"/>
+                    <TableColumn fx:id="colStart"  text="Start"     prefWidth="95"/>
+                    <TableColumn fx:id="colEnd"    text="End"       prefWidth="95"/>
+                    <TableColumn fx:id="colStatus" text="Status"    prefWidth="90"/>
                 </columns>
             </TableView>
-            <HBox spacing="8">
-                <Button text="Cancel Reservation" onAction="#handleCancel" styleClass="btn-danger"/>
-                <Button text="Convert to Rental"  onAction="#handleConvert" styleClass="btn-primary"/>      
+
+            <HBox spacing="10">
+                <Button text="Cancel Reservation" onAction="#handleCancel"
+                        styleClass="btn-danger"/>
+                <Button text="Convert to Rental"  onAction="#handleConvert"
+                        styleClass="btn-primary"/>
             </HBox>
         </VBox>
 
-        <!-- Create Form -->
-        <VBox styleClass="card" spacing="10">
+        <!-- Right: Create Reservation Form -->
+        <VBox styleClass="card" spacing="10" minWidth="300" maxWidth="330">
             <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
             <Label text="New Reservation" styleClass="section-title"/>
 
-            <Label text="Branch *"/>
-            <ComboBox fx:id="cmbBranch" maxWidth="Infinity" styleClass="form-field"/>
+            <Label text="Branch *" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbBranch" maxWidth="Infinity"
+                      promptText="-- Select Branch --"/>
 
-            <Label text="Start Date *"/>
-            <DatePicker fx:id="dpStart" maxWidth="Infinity" styleClass="form-field"/>
+            <Label text="Start Date *" style="-fx-font-weight: bold;"/>
+            <DatePicker fx:id="dpStart" maxWidth="Infinity"/>
 
-            <Label text="End Date * (max 30 days)"/>
-            <DatePicker fx:id="dpEnd" maxWidth="Infinity" styleClass="form-field"/>
+            <Label text="End Date * (max 30 days)" style="-fx-font-weight: bold;"/>
+            <DatePicker fx:id="dpEnd" maxWidth="Infinity"/>
 
-            <Label text="Available Equipment *"/>
-            <ComboBox fx:id="cmbEquipment" maxWidth="Infinity" styleClass="form-field"/>
+            <Label text="Available Equipment *" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbEquipment" maxWidth="Infinity"
+                      promptText="-- Select Equipment --"/>
 
-            <Label text="Customer *"/>
-            <ComboBox fx:id="cmbCustomer" maxWidth="Infinity" styleClass="form-field"/>
+            <Label text="Customer *" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbCustomer" maxWidth="Infinity"
+                      promptText="-- Select Customer --"/>
 
-            <Button text="📅 Create Reservation" onAction="#handleCreate"
+            <Button text="Create Reservation" onAction="#handleCreate"
                     maxWidth="Infinity" styleClass="btn-primary"/>
         </VBox>
-    </SplitPane>
+    </HBox>
 </VBox>
