@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.geometry.Insets?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml"
-           fx:controller="com.gearrent.controller.LoginController"
-           prefWidth="480" prefHeight="400"
-           style="-fx-background-color: linear-gradient(to bottom right, #1E293B, #2563EB);">
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.gearrent.controller.LoginController"
+            prefWidth="500" prefHeight="420"
+            style="-fx-background-color: #1E293B;">
 
-    <VBox alignment="CENTER" spacing="20" maxWidth="400">
-        <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+    <VBox alignment="CENTER" spacing="20"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding><Insets top="40" right="60" bottom="40" left="60"/></padding>
 
-        <!-- Logo & Title -->
+        <!-- Title -->
         <VBox alignment="CENTER" spacing="6">
-            <Label text="⚙  GearRent Pro"
-                   style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
+            <Label text="GearRent Pro"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
             <Label text="Equipment Rental Management System"
                    style="-fx-font-size: 12px; -fx-text-fill: #94A3B8;"/>
         </VBox>
 
         <!-- Login Card -->
         <VBox spacing="14"
-              style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-padding: 28; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 20, 0, 0, 8);">
+              style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-padding: 28; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 16, 0, 0, 6);">
 
-            <Label text="Sign In to Your Account"
-                   style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1E293B;"/>
+            <Label text="Sign In"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1E293B;"/>
 
-            <VBox spacing="6">
-                <Label text="Username"
-                       style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 12px;"/>
-                <TextField fx:id="txtUsername"
-                           promptText="Enter your username"
-                           style="-fx-background-color: #F8FAFC; -fx-text-fill: #0F172A; -fx-prompt-text-fill: #94A3B8; -fx-border-color: #E2E8F0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10 14 10 14; -fx-font-size: 13px;"/>
-            </VBox>
+            <Label text="Username"
+                   style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 12px;"/>
+            <TextField fx:id="txtUsername"
+                       promptText="Enter your username"
+                       style="-fx-background-color: #F8FAFC; -fx-text-fill: #0F172A; -fx-prompt-text-fill: #94A3B8; -fx-border-color: #E2E8F0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10 14 10 14;"/>
 
-            <VBox spacing="6">
-                <Label text="Password"
-                       style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 12px;"/>
-                <PasswordField fx:id="txtPassword"
-                               promptText="Enter your password"
-                               style="-fx-background-color: #F8FAFC; -fx-text-fill: #0F172A; -fx-prompt-text-fill: #94A3B8; -fx-border-color: #E2E8F0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10 14 10 14; -fx-font-size: 13px;"/>
-            </VBox>
+            <Label text="Password"
+                   style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 12px;"/>
+            <PasswordField fx:id="txtPassword"
+                           promptText="Enter your password"
+                           style="-fx-background-color: #F8FAFC; -fx-text-fill: #0F172A; -fx-prompt-text-fill: #94A3B8; -fx-border-color: #E2E8F0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10 14 10 14;"/>
 
             <Label fx:id="lblError"
                    style="-fx-text-fill: #DC2626; -fx-font-size: 12px;"
@@ -53,8 +50,7 @@
                     style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-padding: 11 0 11 0; -fx-cursor: hand;"/>
         </VBox>
 
-        <!-- Footer -->
         <Label text="Institute of Software Engineering  |  GearRent Pro v1.0"
                style="-fx-text-fill: #64748B; -fx-font-size: 10px;"/>
     </VBox>
-</StackPane>
+</AnchorPane>
