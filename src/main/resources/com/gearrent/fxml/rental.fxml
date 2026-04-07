@@ -10,13 +10,14 @@
 
     <Label text="Rentals" styleClass="page-title"/>
 
+    <!-- Filter Bar -->
     <HBox styleClass="filter-bar" spacing="10" alignment="CENTER_LEFT">
         <padding><Insets top="8" right="12" bottom="8" left="12"/></padding>
-        <Label text="Status:"/>
+        <Label text="Status:" style="-fx-text-fill: #0F172A;"/>
         <ComboBox fx:id="cmbFilterStatus" prefWidth="120"/>
-        <Label text="From:"/>
+        <Label text="From:" style="-fx-text-fill: #0F172A;"/>
         <DatePicker fx:id="dpFilterFrom" prefWidth="140"/>
-        <Label text="To:"/>
+        <Label text="To:" style="-fx-text-fill: #0F172A;"/>
         <DatePicker fx:id="dpFilterTo" prefWidth="140"/>
         <Button text="Filter" onAction="#handleFilter" styleClass="btn-secondary"/>
         <Button text="Cancel Rental" onAction="#handleCancel" styleClass="btn-danger"/>
@@ -24,6 +25,7 @@
 
     <SplitPane dividerPositions="0.58" VBox.vgrow="ALWAYS">
 
+        <!-- Rentals Table -->
         <TableView fx:id="tblRentals" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="colId"      text="#"         prefWidth="55"/>
@@ -38,71 +40,96 @@
             </columns>
         </TableView>
 
+        <!-- New Rental Form -->
         <ScrollPane fitToWidth="true">
             <VBox styleClass="card" spacing="10">
                 <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
 
                 <Label text="New Rental" styleClass="section-title"/>
 
-                <Label text="Branch *" style="-fx-font-weight: bold;"/>
-                <ComboBox fx:id="cmbBranch" maxWidth="Infinity" styleClass="form-field"
+                <Label text="Branch *"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <ComboBox fx:id="cmbBranch" maxWidth="Infinity"
                           promptText="-- Select Branch --"/>
 
-                <Label text="Start Date *" style="-fx-font-weight: bold;"/>
-                <DatePicker fx:id="dpStart" maxWidth="Infinity" styleClass="form-field"/>
+                <Label text="Start Date *"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <DatePicker fx:id="dpStart" maxWidth="Infinity"
+                            style="-fx-background-color: white;"/>
 
-                <Label text="End Date * (max 30 days)" style="-fx-font-weight: bold;"/>
-                <DatePicker fx:id="dpEnd" maxWidth="Infinity" styleClass="form-field"/>
+                <Label text="End Date * (max 30 days)"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <DatePicker fx:id="dpEnd" maxWidth="Infinity"
+                            style="-fx-background-color: white;"/>
 
-                <Label text="Available Equipment *" style="-fx-font-weight: bold;"/>
-                <ComboBox fx:id="cmbEquipment" maxWidth="Infinity" styleClass="form-field"
+                <Label text="Available Equipment *"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <ComboBox fx:id="cmbEquipment" maxWidth="Infinity"
                           promptText="-- Select Equipment --"/>
 
-                <Label text="Customer *" style="-fx-font-weight: bold;"/>
-                <ComboBox fx:id="cmbCustomer" maxWidth="Infinity" styleClass="form-field"
+                <Label text="Customer *"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <ComboBox fx:id="cmbCustomer" maxWidth="Infinity"
                           promptText="-- Select Customer --"/>
 
-                <Label text="Payment Status *" style="-fx-font-weight: bold;"/>
-                <ComboBox fx:id="cmbPayment" maxWidth="Infinity" styleClass="form-field"/>
+                <Label text="Payment Status *"
+                       style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <ComboBox fx:id="cmbPayment" maxWidth="Infinity"/>
 
-                <VBox spacing="8" style="-fx-background-color: #EFF6FF; -fx-border-color: #BFDBFE; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 14;">
+                <!-- Cost Preview -->
+                <VBox spacing="8"
+                      style="-fx-background-color: #EFF6FF; -fx-border-color: #BFDBFE; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 14;">
+
                     <Label text="Cost Preview"
                            style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #1E40AF;"/>
+
                     <HBox spacing="0">
-                        <Label text="Rental Amount:   " minWidth="160"
+                        <Label text="Rental Amount:"
+                               minWidth="160"
                                style="-fx-text-fill: #334155; -fx-font-size: 12px;"/>
                         <Label fx:id="lblRentalAmt" text="--"
-                               style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                               style="-fx-font-weight: bold; -fx-text-fill: #0F172A; -fx-font-size: 13px;"/>
                     </HBox>
+
                     <HBox spacing="0">
-                        <Label text="Long Discount:   " minWidth="160"
+                        <Label text="Long Discount:"
+                               minWidth="160"
                                style="-fx-text-fill: #16A34A; -fx-font-size: 12px;"/>
                         <Label fx:id="lblLongDisc" text="--"
-                               style="-fx-font-weight: bold; -fx-text-fill: #16A34A;"/>
+                               style="-fx-font-weight: bold; -fx-text-fill: #16A34A; -fx-font-size: 13px;"/>
                     </HBox>
+
                     <HBox spacing="0">
-                        <Label text="Member Discount: " minWidth="160"
+                        <Label text="Member Discount:"
+                               minWidth="160"
                                style="-fx-text-fill: #16A34A; -fx-font-size: 12px;"/>
                         <Label fx:id="lblMemDisc" text="--"
-                               style="-fx-font-weight: bold; -fx-text-fill: #16A34A;"/>
+                               style="-fx-font-weight: bold; -fx-text-fill: #16A34A; -fx-font-size: 13px;"/>
                     </HBox>
+
                     <HBox spacing="0">
-                        <Label text="Security Deposit:" minWidth="160"
+                        <Label text="Security Deposit:"
+                               minWidth="160"
                                style="-fx-text-fill: #334155; -fx-font-size: 12px;"/>
                         <Label fx:id="lblDeposit" text="--"
-                               style="-fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                               style="-fx-font-weight: bold; -fx-text-fill: #0F172A; -fx-font-size: 13px;"/>
                     </HBox>
+
                     <Separator/>
+
                     <HBox spacing="0">
-                        <Label text="TOTAL PAYABLE:   " minWidth="160"
+                        <Label text="TOTAL PAYABLE:"
+                               minWidth="160"
                                style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #1E3A8A;"/>
                         <Label fx:id="lblFinal" text="--"
                                style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #2563EB;"/>
                     </HBox>
                 </VBox>
 
-                <Button text="Create Rental" onAction="#handleCreate"
-                        maxWidth="Infinity" styleClass="btn-primary"/>
+                <Button text="Create Rental"
+                        onAction="#handleCreate"
+                        maxWidth="Infinity"
+                        styleClass="btn-primary"/>
             </VBox>
         </ScrollPane>
     </SplitPane>
