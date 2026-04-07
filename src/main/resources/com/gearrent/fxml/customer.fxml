@@ -10,17 +10,23 @@
 
     <Label text="Customer Management" styleClass="page-title"/>
 
+    <!-- Search Bar -->
     <HBox styleClass="filter-bar" spacing="10" alignment="CENTER_LEFT">
         <padding><Insets top="8" right="12" bottom="8" left="12"/></padding>
-        <TextField fx:id="txtSearch" promptText="Search by name, NIC, email" prefWidth="280"/>
+        <TextField fx:id="txtSearch"
+                   promptText="Search by name, NIC, email..."
+                   prefWidth="300"
+                   style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
         <Button text="Search" onAction="#handleSearch" styleClass="btn-secondary"/>
     </HBox>
 
-    <SplitPane dividerPositions="0.56" VBox.vgrow="ALWAYS">
-        <VBox>
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+        <!-- Table -->
+        <VBox HBox.hgrow="ALWAYS" spacing="6">
             <TableView fx:id="tblCust" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colId"      text="#"          prefWidth="50"/>
+                    <TableColumn fx:id="colId"      text="#"          prefWidth="45"/>
                     <TableColumn fx:id="colName"    text="Name"       prefWidth="160"/>
                     <TableColumn fx:id="colNic"     text="NIC/Pass"   prefWidth="130"/>
                     <TableColumn fx:id="colContact" text="Contact"    prefWidth="110"/>
@@ -30,28 +36,47 @@
             </TableView>
         </VBox>
 
-        <VBox styleClass="card" spacing="10">
+        <!-- Form -->
+        <VBox styleClass="card" spacing="10" minWidth="300" maxWidth="340">
             <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
             <Label text="Customer Details" styleClass="section-title"/>
-            <Label text="Full Name *"/>
-            <TextField fx:id="txtName" styleClass="form-field"/>
-            <Label text="NIC / Passport *"/>
-            <TextField fx:id="txtNic" styleClass="form-field"/>
-            <Label text="Contact No *"/>
-            <TextField fx:id="txtContact" styleClass="form-field"/>
-            <Label text="Email"/>
-            <TextField fx:id="txtEmail" styleClass="form-field"/>
-            <Label text="Address"/>
-            <TextField fx:id="txtAddress" styleClass="form-field"/>
-            <Label text="Membership Level"/>
-            <ComboBox fx:id="cmbLevel" maxWidth="Infinity" styleClass="form-field"/>
-            <Label fx:id="lblDeposit" styleClass="info-label"/>
-            <HBox spacing="8">
-                <Button text="Save"    onAction="#handleSave"        styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="Delete"  onAction="#handleDelete"      styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="History" onAction="#handleViewHistory" styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-                <Button text="Clear"   onAction="#handleClear"       styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+
+            <Label text="Full Name *" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtName"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
+
+            <Label text="NIC / Passport *" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtNic"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
+
+            <Label text="Contact No *" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtContact"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
+
+            <Label text="Email" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtEmail"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
+
+            <Label text="Address" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtAddress"
+                       style="-fx-background-color: white; -fx-text-fill: #0F172A; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 7 10 7 10;"/>
+
+            <Label text="Membership Level" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbLevel" maxWidth="Infinity"/>
+
+            <Label fx:id="lblDeposit" styleClass="info-label"
+                   style="-fx-text-fill: #2563EB; -fx-font-size: 11px;"/>
+
+            <HBox spacing="6">
+                <Button text="Save"    onAction="#handleSave"
+                        styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Delete"  onAction="#handleDelete"
+                        styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="History" onAction="#handleViewHistory"
+                        styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Clear"   onAction="#handleClear"
+                        styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
             </HBox>
         </VBox>
-    </SplitPane>
+    </HBox>
 </VBox>
