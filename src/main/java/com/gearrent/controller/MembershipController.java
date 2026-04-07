@@ -16,10 +16,8 @@ public class MembershipController implements Initializable {
 
     @FXML private TableView<MembershipConfig> tblMem;
     @FXML private TableColumn<MembershipConfig,String> colLevel, colDiscount, colLimit;
-
     @FXML private Label     lblLevel;
     @FXML private TextField txtDiscount, txtLimit;
-
     @FXML private TextField txtMinDays, txtLongDiscount, txtLateFee;
     @FXML private Label     lblPricingStatus;
 
