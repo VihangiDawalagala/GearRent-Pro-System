@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.ReportController"
+      spacing="12" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Reports" styleClass="page-title"/>
+
+    <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+
+        <!-- ── Tab 1: Branch Revenue ────────────────────────── -->
+        <Tab text="📊  Branch-wise Revenue">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="12" bottom="12" left="12"/></padding>
+
+                <HBox styleClass="filter-bar" spacing="12" alignment="CENTER_LEFT">
+                    <padding><Insets top="8" right="12" bottom="8" left="12"/></padding>
+                    <Label text="From:"/>
+                    <DatePicker fx:id="dpRevFrom" prefWidth="140"/>
+                    <Label text="To:"/>
+                    <DatePicker fx:id="dpRevTo"   prefWidth="140"/>
+                    <Button text="▶ Run Report" onAction="#handleRunRevenue" styleClass="btn-primary"/>
+                </HBox>
+
+                <TableView fx:id="tblRevenue" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colRevBranch" text="Branch"         prefWidth="180"/>
+                        <TableColumn fx:id="colRevCount"  text="# Rentals"      prefWidth="90"/>
+                        <TableColumn fx:id="colRevIncome" text="Rental Income"  prefWidth="150"/>
+                        <TableColumn fx:id="colRevLate"   text="Late Fees"      prefWidth="130"/>
+                        <TableColumn fx:id="colRevDamage" text="Damage Charges" prefWidth="140"/>
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblRevTotal" styleClass="total-label" wrapText="true"/>
+            </VBox>
+        </Tab>
+
+        <!-- ── Tab 2: Equipment Utilisation ─────────────────── -->
+        <Tab text="📈  Equipment Utilisation">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="12" bottom="12" left="12"/></padding>
+
+                <HBox styleClass="filter-bar" spacing="12" alignment="CENTER_LEFT">
+                    <padding><Insets top="8" right="12" bottom="8" left="12"/></padding>
+                    <Label text="Branch:"/>
+                    <ComboBox fx:id="cmbUtilBranch" prefWidth="160"/>
+                    <Label text="From:"/>
+                    <DatePicker fx:id="dpUtilFrom" prefWidth="140"/>
+                    <Label text="To:"/>
+                    <DatePicker fx:id="dpUtilTo"   prefWidth="140"/>
+                    <Button text="▶ Run Report" onAction="#handleRunUtilisation" styleClass="btn-primary"/>
+                </HBox>
+
+                <TableView fx:id="tblUtil" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colUtilId"     text="Equipment ID"  prefWidth="120"/>
+                        <TableColumn fx:id="colUtilModel"  text="Brand / Model" prefWidth="180"/>
+                        <TableColumn fx:id="colUtilCat"    text="Category"      prefWidth="110"/>
+                        <TableColumn fx:id="colUtilRented" text="Rented"        prefWidth="100"/>
+                        <TableColumn fx:id="colUtilTotal"  text="Period"        prefWidth="100"/>
+                        <TableColumn fx:id="colUtilPct"    text="Utilisation %"  prefWidth="110"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="20">
+                    <Label text="🟩 ≥70% utilisation" styleClass="legend-high"/>
+                    <Label text="🟥 ≤20% utilisation" styleClass="legend-low"/>
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.gearrent.controller.MainController"
+            styleClass="root-pane">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label text="⚙ GearRent Pro" styleClass="app-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblUserInfo" styleClass="user-info-label"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" spacing="4" minWidth="200">
+            <padding><Insets top="16" right="8" bottom="16" left="8"/></padding>
+
+            <Label text="NAVIGATION" styleClass="nav-section-label"/>
+
+            <Button fx:id="btnDashboard"   text="Dashboard"     maxWidth="Infinity" onAction="#showDashboard"   styleClass="nav-btn"/>
+            <Button fx:id="btnBranches"    text="Branches"      maxWidth="Infinity" onAction="#showBranches"    styleClass="nav-btn"/>
+            <Button fx:id="btnCategories"  text="Categories"    maxWidth="Infinity" onAction="#showCategories"  styleClass="nav-btn"/>
+            <Button fx:id="btnEquipment"   text="Equipment"     maxWidth="Infinity" onAction="#showEquipment"   styleClass="nav-btn"/>
+            <Button fx:id="btnCustomers"   text="Customers"     maxWidth="Infinity" onAction="#showCustomers"   styleClass="nav-btn"/>
+            <Button fx:id="btnMembership"  text="Membership"    maxWidth="Infinity" onAction="#showMembership"  styleClass="nav-btn"/>
+            <Button fx:id="btnReservations"text="Reservations"  maxWidth="Infinity" onAction="#showReservations"styleClass="nav-btn"/>
+            <Button fx:id="btnRentals"     text="Rentals"       maxWidth="Infinity" onAction="#showRentals"     styleClass="nav-btn"/>
+            <Button fx:id="btnReturns"     text="Returns"       maxWidth="Infinity" onAction="#showReturns"     styleClass="nav-btn"/>
+            <Button fx:id="btnOverdue"     text="Overdue"       maxWidth="Infinity" onAction="#showOverdue"     styleClass="nav-btn"/>
+            <Button fx:id="btnReports"     text="Reports"       maxWidth="Infinity" onAction="#showReports"     styleClass="nav-btn"/>
+            <Button fx:id="btnUsers"       text="Users"         maxWidth="Infinity" onAction="#showUsers"       styleClass="nav-btn"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENT AREA -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <!-- sub-views load here -->
+        </StackPane>
+    </center>
+</BorderPane>

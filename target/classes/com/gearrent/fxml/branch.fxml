@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.BranchController"
+      spacing="16" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Manage Branches" styleClass="page-title"/>
+    <Label fx:id="lblStatus" styleClass="error-label"/>
+
+    <SplitPane dividerPositions="0.55" VBox.vgrow="ALWAYS">
+
+        <!-- Table -->
+        <VBox spacing="8">
+            <TableView fx:id="tblBranches" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCode"    text="Code"    prefWidth="80"/>
+                    <TableColumn fx:id="colName"    text="Name"    prefWidth="160"/>
+                    <TableColumn fx:id="colAddress" text="Address" prefWidth="200"/>
+                    <TableColumn fx:id="colContact" text="Contact" prefWidth="110"/>
+                    <TableColumn fx:id="colActive"  text="Active"  prefWidth="60"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Form -->
+        <VBox styleClass="card" spacing="10">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Branch Details" styleClass="section-title"/>
+
+            <Label text="Branch Code *"/>
+            <TextField fx:id="txtCode" promptText="e.g. COL" styleClass="form-field"/>
+
+            <Label text="Branch Name *"/>
+            <TextField fx:id="txtName" promptText="e.g. Colombo Branch" styleClass="form-field"/>
+
+            <Label text="Address"/>
+            <TextField fx:id="txtAddress" promptText="Street, City" styleClass="form-field"/>
+
+            <Label text="Contact Number"/>
+            <TextField fx:id="txtContact" promptText="0xx-xxxxxxx" styleClass="form-field"/>
+
+            <CheckBox fx:id="chkActive" text="Active" selected="true"/>
+
+            <HBox spacing="8">
+                <Button fx:id="btnSave"   text="💾 Save"   onAction="#handleSave"   styleClass="btn-primary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="btnDelete" text="🗑 Delete" onAction="#handleDelete" styleClass="btn-danger"  HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="btnClear"  text="✖ Clear"  onAction="#handleClear"  styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox>

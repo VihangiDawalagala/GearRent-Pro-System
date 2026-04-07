@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.ReservationController"
+      spacing="12" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Reservations" styleClass="page-title"/>
+
+    <SplitPane dividerPositions="0.60" VBox.vgrow="ALWAYS">
+        <!-- List -->
+        <VBox spacing="8">
+            <TableView fx:id="tblRes" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"     text="#"          prefWidth="55"/>
+                    <TableColumn fx:id="colEquip"  text="Equipment"  prefWidth="200"/>
+                    <TableColumn fx:id="colCust"   text="Customer"   prefWidth="150"/>
+                    <TableColumn fx:id="colBranch" text="Branch"     prefWidth="110"/>
+                    <TableColumn fx:id="colStart"  text="Start"      prefWidth="100"/>
+                    <TableColumn fx:id="colEnd"    text="End"        prefWidth="100"/>
+                    <TableColumn fx:id="colStatus" text="Status"     prefWidth="90"/>
+                </columns>
+            </TableView>
+            <HBox spacing="8">
+                <Button text="❌ Cancel Reservation" onAction="#handleCancel" styleClass="btn-danger"/>
+                <Button text="✅ Convert to Rental"  onAction="#handleConvert" styleClass="btn-primary"/>
+            </HBox>
+        </VBox>
+
+        <!-- Create Form -->
+        <VBox styleClass="card" spacing="10">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="New Reservation" styleClass="section-title"/>
+
+            <Label text="Branch *"/>
+            <ComboBox fx:id="cmbBranch" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="Start Date *"/>
+            <DatePicker fx:id="dpStart" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="End Date * (max 30 days)"/>
+            <DatePicker fx:id="dpEnd" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="Available Equipment *"/>
+            <ComboBox fx:id="cmbEquipment" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="Customer *"/>
+            <ComboBox fx:id="cmbCustomer" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Button text="📅 Create Reservation" onAction="#handleCreate"
+                    maxWidth="Infinity" styleClass="btn-primary"/>
+        </VBox>
+    </SplitPane>
+</VBox>

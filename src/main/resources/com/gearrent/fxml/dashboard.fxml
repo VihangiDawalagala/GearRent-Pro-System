@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.DashboardController"
+      spacing="20" styleClass="view-root">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <Label text="Dashboard" styleClass="page-title"/>
+
+    <!-- Stat Cards Row -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Active Rentals"  styleClass="stat-label"/>
+            <Label fx:id="lblActiveRentals" text="—" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Overdue Rentals" styleClass="stat-label"/>
+            <Label fx:id="lblOverdueRentals" text="—" styleClass="stat-value stat-danger"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Reservations"    styleClass="stat-label"/>
+            <Label fx:id="lblReservations" text="—" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label text="Customers"        styleClass="stat-label"/>
+            <Label fx:id="lblCustomers"    text="—" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <!-- Overdue table preview -->
+    <VBox styleClass="card" VBox.vgrow="ALWAYS" spacing="8">
+        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+        <Label text="⚠  Overdue Rentals" styleClass="section-title"/>
+        <TableView fx:id="tblOverdue" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colOvRentalId"  text="Rental #"   prefWidth="80"/>
+                <TableColumn fx:id="colOvCustomer"  text="Customer"   prefWidth="160"/>
+                <TableColumn fx:id="colOvEquipment" text="Equipment"  prefWidth="200"/>
+                <TableColumn fx:id="colOvBranch"    text="Branch"     prefWidth="120"/>
+                <TableColumn fx:id="colOvDue"       text="Due Date"   prefWidth="110"/>
+                <TableColumn fx:id="colOvDaysOver"  text="Days Over"  prefWidth="90"/>
+                <TableColumn fx:id="colOvContact"   text="Contact"    prefWidth="120"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.RentalController"
+      spacing="12" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Rentals" styleClass="page-title"/>
+
+    <!-- Filter bar -->
+    <HBox styleClass="filter-bar" spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="8" right="12" bottom="8" left="12"/></padding>
+        <Label text="Status:"/>
+        <ComboBox fx:id="cmbFilterStatus" prefWidth="110"/>
+        <Label text="From:"/>
+        <DatePicker fx:id="dpFilterFrom" prefWidth="140"/>
+        <Label text="To:"/>
+        <DatePicker fx:id="dpFilterTo"   prefWidth="140"/>
+        <Button text="🔍 Filter" onAction="#handleFilter" styleClass="btn-secondary"/>
+        <Button text="❌ Cancel Rental" onAction="#handleCancel" styleClass="btn-danger"/>
+    </HBox>
+
+    <SplitPane dividerPositions="0.58" VBox.vgrow="ALWAYS">
+        <!-- Table -->
+        <TableView fx:id="tblRentals" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId"      text="#"       prefWidth="55"/>
+                <TableColumn fx:id="colEquip"   text="Equipment" prefWidth="190"/>
+                <TableColumn fx:id="colCust"    text="Customer"  prefWidth="140"/>
+                <TableColumn fx:id="colBranch"  text="Branch"    prefWidth="110"/>
+                <TableColumn fx:id="colStart"   text="Start"     prefWidth="95"/>
+                <TableColumn fx:id="colEnd"     text="End"       prefWidth="95"/>
+                <TableColumn fx:id="colFinal"   text="Payable"   prefWidth="110"/>
+                <TableColumn fx:id="colPayment" text="Payment"   prefWidth="100"/>
+                <TableColumn fx:id="colStatus"  text="Status"    prefWidth="85"/>
+            </columns>
+        </TableView>
+
+        <!-- Create Form -->
+        <ScrollPane fitToWidth="true">
+        <VBox styleClass="card" spacing="10">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="New Rental" styleClass="section-title"/>
+
+            <Label text="Branch *"/>
+            <ComboBox fx:id="cmbBranch" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="Start Date *"/>
+            <DatePicker fx:id="dpStart" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="End Date *"/>
+            <DatePicker fx:id="dpEnd" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="Available Equipment *"/>
+            <ComboBox fx:id="cmbEquipment" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="Customer *"/>
+            <ComboBox fx:id="cmbCustomer" maxWidth="Infinity" styleClass="form-field"/>
+
+            <Label text="Payment Status *"/>
+            <ComboBox fx:id="cmbPayment" maxWidth="Infinity" styleClass="form-field"/>
+
+            <!-- Cost Preview -->
+            <VBox styleClass="cost-preview" spacing="4">
+                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                <Label text="Cost Preview" styleClass="section-title"/>
+                <HBox><Label text="Rental Amount:   " minWidth="160"/><Label fx:id="lblRentalAmt" text="—"/></HBox>
+                <HBox><Label text="Long Discount:   " minWidth="160"/><Label fx:id="lblLongDisc"  text="—" styleClass="discount-label"/></HBox>
+                <HBox><Label text="Member Discount: " minWidth="160"/><Label fx:id="lblMemDisc"   text="—" styleClass="discount-label"/></HBox>
+                <HBox><Label text="Security Deposit:" minWidth="160"/><Label fx:id="lblDeposit"   text="—"/></HBox>
+                <Separator/>
+                <HBox><Label text="Total Payable:   " minWidth="160" styleClass="total-label"/><Label fx:id="lblFinal" styleClass="total-value"/></HBox>
+            </VBox>
+
+            <Button text="✅ Create Rental" onAction="#handleCreate" maxWidth="Infinity" styleClass="btn-primary"/>
+        </VBox>
+        </ScrollPane>
+    </SplitPane>
+</VBox>

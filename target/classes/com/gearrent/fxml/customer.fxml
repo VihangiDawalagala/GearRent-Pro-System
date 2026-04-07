@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.CustomerController"
+      spacing="12" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Customer Management" styleClass="page-title"/>
+
+    <HBox styleClass="filter-bar" spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="8" right="12" bottom="8" left="12"/></padding>
+        <TextField fx:id="txtSearch" promptText="Search by name, NIC, email…" prefWidth="280"/>
+        <Button text="🔍 Search" onAction="#handleSearch" styleClass="btn-secondary"/>
+    </HBox>
+
+    <SplitPane dividerPositions="0.56" VBox.vgrow="ALWAYS">
+        <VBox>
+            <TableView fx:id="tblCust" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"      text="#"         prefWidth="50"/>
+                    <TableColumn fx:id="colName"    text="Name"      prefWidth="160"/>
+                    <TableColumn fx:id="colNic"     text="NIC/Pass"  prefWidth="130"/>
+                    <TableColumn fx:id="colContact" text="Contact"   prefWidth="110"/>
+                    <TableColumn fx:id="colEmail"   text="Email"     prefWidth="160"/>
+                    <TableColumn fx:id="colLevel"   text="Membership"prefWidth="90"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="Customer Details" styleClass="section-title"/>
+            <Label text="Full Name *"/>
+            <TextField fx:id="txtName" styleClass="form-field"/>
+            <Label text="NIC / Passport *"/>
+            <TextField fx:id="txtNic" styleClass="form-field"/>
+            <Label text="Contact No *"/>
+            <TextField fx:id="txtContact" styleClass="form-field"/>
+            <Label text="Email"/>
+            <TextField fx:id="txtEmail" styleClass="form-field"/>
+            <Label text="Address"/>
+            <TextField fx:id="txtAddress" styleClass="form-field"/>
+            <Label text="Membership Level"/>
+            <ComboBox fx:id="cmbLevel" maxWidth="Infinity" styleClass="form-field"/>
+            <Label fx:id="lblDeposit" styleClass="info-label"/>
+            <HBox spacing="8">
+                <Button text="💾 Save"         onAction="#handleSave"        styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="🗑 Delete"       onAction="#handleDelete"      styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="📋 History"      onAction="#handleViewHistory" styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="✖ Clear"        onAction="#handleClear"       styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox>

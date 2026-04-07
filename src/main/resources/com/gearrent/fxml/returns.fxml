@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.ReturnController"
+      spacing="12" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Process Returns" styleClass="page-title"/>
+
+    <SplitPane dividerPositions="0.55" VBox.vgrow="ALWAYS">
+        <!-- Active rentals list -->
+        <VBox spacing="6">
+            <Label text="Active / Overdue Rentals" styleClass="section-title"/>
+            <TableView fx:id="tblActive" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"      text="#"        prefWidth="55"/>
+                    <TableColumn fx:id="colEquip"   text="Equipment"prefWidth="190"/>
+                    <TableColumn fx:id="colCust"    text="Customer" prefWidth="130"/>
+                    <TableColumn fx:id="colBranch"  text="Branch"   prefWidth="110"/>
+                    <TableColumn fx:id="colStart"   text="Start"    prefWidth="95"/>
+                    <TableColumn fx:id="colEnd"     text="Due"      prefWidth="95"/>
+                    <TableColumn fx:id="colDays"    text="Overdue?" prefWidth="110"/>
+                    <TableColumn fx:id="colDeposit" text="Deposit"  prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Return form -->
+        <ScrollPane fitToWidth="true">
+        <VBox styleClass="card" spacing="10">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="Return Details" styleClass="section-title"/>
+            <Label fx:id="lblRentalInfo" text="Select a rental from the table." wrapText="true" styleClass="info-label"/>
+
+            <Label text="Actual Return Date *"/>
+            <DatePicker fx:id="dpActualReturn" maxWidth="Infinity"/>
+
+            <CheckBox fx:id="chkDamaged" text="Equipment Damaged"/>
+
+            <Label text="Damage Description"/>
+            <TextField fx:id="txtDamageDesc" styleClass="form-field"/>
+
+            <Label text="Damage Charge (LKR)"/>
+            <TextField fx:id="txtDamageCharge" styleClass="form-field" promptText="0.00"/>
+
+            <!-- Charge breakdown -->
+            <VBox styleClass="cost-preview" spacing="4">
+                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                <Label text="Settlement Preview" styleClass="section-title"/>
+                <HBox><Label text="Late Fee:          " minWidth="170"/><Label fx:id="lblLateFee"    text="—"/></HBox>
+                <HBox><Label text="Total Charges:     " minWidth="170"/><Label fx:id="lblDamageTotal" text="—"/></HBox>
+                <HBox><Label text="Deposit Used:      " minWidth="170"/><Label fx:id="lblDepositUsed" text="—"/></HBox>
+                <Separator/>
+                <HBox><Label text="Refund to Customer:" minWidth="170"/><Label fx:id="lblRefund"     text="—" styleClass="total-value"/></HBox>
+                <HBox><Label text="Extra to Collect:  " minWidth="170"/><Label fx:id="lblExtra"      text="—" styleClass="stat-danger"/></HBox>
+            </VBox>
+
+            <Button text="↩ Process Return" onAction="#handleProcessReturn"
+                    maxWidth="Infinity" styleClass="btn-primary"/>
+        </VBox>
+        </ScrollPane>
+    </SplitPane>
+</VBox>

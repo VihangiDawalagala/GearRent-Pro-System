@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.CategoryController"
+      spacing="16" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Equipment Categories" styleClass="page-title"/>
+    <Label fx:id="lblStatus" styleClass="error-label"/>
+
+    <SplitPane dividerPositions="0.58" VBox.vgrow="ALWAYS">
+        <VBox spacing="6">
+            <TableView fx:id="tblCats" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colName"    text="Category"        prefWidth="140"/>
+                    <TableColumn fx:id="colFactor"  text="Price Factor"    prefWidth="100"/>
+                    <TableColumn fx:id="colWE"      text="Weekend ×"       prefWidth="100"/>
+                    <TableColumn fx:id="colLateFee" text="Late Fee/Day"    prefWidth="110"/>
+                    <TableColumn fx:id="colActive"  text="Active"          prefWidth="60"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Category Details" styleClass="section-title"/>
+
+            <Label text="Name *"/>
+            <TextField fx:id="txtName" promptText="e.g. Camera" styleClass="form-field"/>
+
+            <Label text="Description"/>
+            <TextField fx:id="txtDesc" promptText="Short description" styleClass="form-field"/>
+
+            <Label text="Base Price Factor *"/>
+            <TextField fx:id="txtFactor" promptText="e.g. 1.50" styleClass="form-field"/>
+
+            <Label text="Weekend Multiplier *"/>
+            <TextField fx:id="txtWE" promptText="e.g. 1.20" styleClass="form-field"/>
+
+            <Label text="Default Late Fee per Day (LKR) *"/>
+            <TextField fx:id="txtLateFee" promptText="e.g. 500" styleClass="form-field"/>
+
+            <CheckBox fx:id="chkActive" text="Active" selected="true"/>
+
+            <HBox spacing="8">
+                <Button text="💾 Save"   onAction="#handleSave"   styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="🗑 Delete" onAction="#handleDelete" styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="✖ Clear"  onAction="#handleClear"  styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox>

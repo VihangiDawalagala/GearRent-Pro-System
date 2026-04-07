@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gearrent.controller.OverdueController"
+      spacing="12" styleClass="view-root">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <Label text="⚠  Overdue Rentals" styleClass="page-title"/>
+        <Button text="🔄 Refresh" onAction="#handleRefresh" styleClass="btn-secondary"/>
+    </HBox>
+
+    <TableView fx:id="tblOverdue" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"      text="Rental #"   prefWidth="80"/>
+            <TableColumn fx:id="colEquip"   text="Equipment"  prefWidth="200"/>
+            <TableColumn fx:id="colCust"    text="Customer"   prefWidth="150"/>
+            <TableColumn fx:id="colBranch"  text="Branch"     prefWidth="120"/>
+            <TableColumn fx:id="colDue"     text="Due Date"   prefWidth="110"/>
+            <TableColumn fx:id="colDays"    text="Days Over"  prefWidth="100"/>
+            <TableColumn fx:id="colContact" text="Contact"    prefWidth="120"/>
+            <TableColumn fx:id="colEmail"   text="Email"      prefWidth="180"/>
+        </columns>
+    </TableView>
+</VBox>
